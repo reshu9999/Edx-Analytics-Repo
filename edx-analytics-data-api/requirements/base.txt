@@ -1,0 +1,18 @@
+boto==2.42.0                        # MIT
+Django==1.10.4 						# BSD License
+django-countries==4.0               # MIT
+djangorestframework==3.5.3			# BSD
+django-rest-swagger==0.3.8  		# BSD
+djangorestframework-csv==1.4.1		# BSD
+django-storages==1.5.1              # BSD
+elasticsearch-dsl==0.0.11           # Apache 2.0
+ordered-set==2.0.1                  # MIT
+tqdm==4.10.0                        # MIT
+
+# markdown is used by swagger for rendering the api docs
+Markdown==2.6.6    					# BSD
+
+edx-ccx-keys==0.2.1
+edx-django-release-util==0.2.0
+edx-opaque-keys==0.4.0
+edx-rest-api-client==1.4.0          # Apache 2.0
