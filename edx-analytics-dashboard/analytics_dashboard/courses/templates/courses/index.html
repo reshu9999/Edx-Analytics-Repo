@@ -1,0 +1,43 @@
+{% extends "base_dashboard.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load dashboard_extras %}
+{% load rjs %}
+
+{% block view-name %}view-course-list{% endblock view-name %}
+
+{% block title %}{% trans "Courses" %} {{ block.super }}{% endblock title %}
+
+
+{% block header-text %}
+  <h3 class="row">
+    {% blocktrans with username=request.user.username %}Welcome, {{ username }}!{% endblocktrans %}
+  </h3>
+{% endblock %}
+
+{% block intro-text %}
+  {% blocktrans %}Here are the courses you currently have access to in {{ application_name }}:{% endblocktrans %}
+{% endblock intro-text %}
+
+{% block stylesheets %}
+  {{ block.super }}
+  <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
+{% endblock stylesheets %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script src="{% static_rjs 'apps/course-list/app/course-list-main.js' %}"></script>
+{% endblock javascript %}
+
+{% block content %}
+  {% block child_content %}
+    <section class="view-section">
+      <div class="course-list-app-container grid-container">
+        {% include "loading.html" %}
+      </div>
+    </section>
+  {% endblock %}
+  {% block data_messaging %}
+    {% include "courses/_data_last_updated.html" with update_message=update_message data_information_message=data_information_message %}
+  {% endblock %}
+{% endblock %}
