@@ -1,0 +1,31 @@
+{% extends "courses/base-course.html" %}
+
+{% load dashboard_extras %}
+{% load i18n %}
+{% load staticfiles %}
+{% load rjs %}
+
+{% comment %}
+View of individual learners within a course.
+{% endcomment %}
+
+{% block view-name %}view-learners view-dashboard{% endblock view-name %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="/static/bower_components/backgrid-paginator/backgrid-paginator.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/bower_components/nprogress/nprogress.css" type="text/css">
+{% endblock stylesheets %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static_rjs 'apps/learners/app/learners-main.js' %}"></script>
+{% endblock javascript %}
+
+{% block child_content %}
+    <section class="view-section">
+        <div class="learners-app-container grid-container">
+            {% include "loading.html" %}
+        </div>
+    </section>
+{% endblock %}
